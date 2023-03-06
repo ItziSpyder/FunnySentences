@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "FunnySentences",
+  "version": "${version}",
+  "name": "FunnySentences",
+  "description": "Generates funny random sentences to troll your friends!",
+  "authors": [
+    "ImproperIssues"
+  ],
+  "contact": {
+    "website": "https://itzispyder.github.io/"
+  },
+  "license": "MIT",
+  "icon": "assets/FunnySentences/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "io.github.itzispyder.funnysentences.client.FunnySentencesClient"
+    ],
+    "main": [
+      "io.github.itzispyder.funnysentences.FunnySentences"
+    ]
+  },
+  "mixins": [
+    "FunnySentences.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.17",
+    "fabric": "*",
+    "minecraft": "1.19.3"
+  }
+}
