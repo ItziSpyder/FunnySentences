@@ -32,6 +32,7 @@ public class FileLineReader {
             String line = br.readLine();
             while (line != null) {
                 lines.add(line);
+                line = br.readLine();
             }
             br.close();
             return lines;
