@@ -1,4 +1,4 @@
-# ![ICON](/src/main/resources/assets/FunnySentences/icon.png) FunnySentences
+# ![ICON](/src/main/resources/assets/FunnySentences/icon.png) FunnySentences [1.19.3]
 Generate random funny sentences to troll your friends with!
 --------------------------------------------------------
 
