@@ -4,21 +4,56 @@
     background-image: linear-gradient(90deg,rgb(101, 101, 174),rgb(187, 187, 254),rgb(153, 153, 251),rgb(101, 101, 174));
     background-size: 700% 700%;
     animation: gradient 15s linear infinite;
+    z-index: 1;
 }
 
 .title {
     font-size: 50px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
 }
 
 .info {
     border: 2px black solid;
     border-radius: 15px;
     width: max-content;
+    text-align: center;
+    margin: auto;
+    backdrop-filter: blur(5px);
 }
 
 .info .text {
     margin-left: 20px;
     margin-right: 20px;
+    text-align: left;
+}
+
+.essay {
+    color: gray;
+    opacity: 50%;
+    size: 100%;
+    text-align: center;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: -50%;
+    font-size: 30px;
+    animation: textscroll 10s linear infinite;
+    line-height: 50px;
+    width: 200%;
+    z-index: -100;
+}
+
+@keyframes textscroll {
+    0%, 100% {
+        transform: translateY(-30%) translateX(0) skew(45deg);
+    }
+    99% {
+        transform: translateY(-10%) translateX(12%) skew(45deg);
+    }
 }
 
 @keyframes gradient {
