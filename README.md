@@ -21,3 +21,8 @@ Shhh don't let the mods know!
 
 ### Thank you for downloading FunnySentences!
 Just don't get yourself banned from servers!
+
+### Dependencies
+Fabric API of 0.14.13 or higher
+Fabric Loader 1.19.3 
+Minecraft Java Edition 1.19.3
