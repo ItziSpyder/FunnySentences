@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/assets/css/README.css">
 </head>
 <body>
-    <!-- Title -->
     <div class="title">
         <h1 class=".banner"><img src="/src/main/resources/assets/FunnySentences/icon.png" id="icon">FunnySentences</h1>
     </div>
