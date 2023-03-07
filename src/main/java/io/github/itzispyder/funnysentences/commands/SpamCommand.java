@@ -22,8 +22,10 @@ public class SpamCommand {
         dispatcher.register(literal("fs:spam").then(argument("amount",IntegerArgumentType.integer()).then(argument("message", StringArgumentType.greedyString()).executes(cxt -> {
             String message = cxt.getArgument("message",String.class);
             int amount = cxt.getArgument("amount",Integer.class);
-            if (amount >= 100) amount = 100;
-            ChatUtils.sendMessage(starter + "§cYour amount was set to 100 due to being too high for safety reasons!");
+            if (amount >= 100) {
+                amount = 100;
+                ChatUtils.sendMessage(starter + "§cYour amount was set to 100 due to being too high for safety reasons!");
+            }
             new ScheduledTask(() -> {
                 ChatUtils.sendChatMessage(message);
             }).runRepeatingTask(amount,1);
