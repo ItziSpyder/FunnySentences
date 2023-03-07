@@ -16,13 +16,13 @@ Generate random funny sentences to troll your friends with!
 - Emoji Spam -spams emojis
 
 ### Troll your friends!
-Use this mod to spam messages and sentences to troll your friends!
-Shhh don't let the mods know!
+- Use this mod to spam messages and sentences to troll your friends!
+- Shhh don't let the mods know!
 
 ### Thank you for downloading FunnySentences!
-Just don't get yourself banned from servers!
+- Just don't get yourself banned from servers!
 
 ### Dependencies
-Fabric API of 0.14.13 or higher
-Fabric Loader 1.19.3 
-Minecraft Java Edition 1.19.3
+- Fabric API of 0.14.13 or higher
+- Fabric Loader 1.19.3 
+- Minecraft Java Edition 1.19.3
