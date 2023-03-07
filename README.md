@@ -1,5 +1,5 @@
-# FunnySentences
-![ICON](/src/main/resources/assets/FunnySentences/icon.png) Generate random funny sentences to troll your friends with!
+![ICON](/src/main/resources/assets/FunnySentences/icon.png) # FunnySentences
+Generate random funny sentences to troll your friends with!
 --------------------------------------------------------
 
 ### Commands *(everything is clientside!)*
