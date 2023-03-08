@@ -11,11 +11,11 @@ Generate random funny sentences to troll your friends with!
 - /fs spam \<message\> | spams a message
 - /fs help | command help
 
-### Sentences
+### Sentence Types
 - Normal(Default) -generates random sentence
-- Letter Spam -spam abc's
-- Unicode Spam -spams unicodes
-- Emoji Spam -spams emojis
+- Rage -spam random letters (like how you would when raging)
+- Unicode -spams unicodes
+- Emoji -spams emojis
 
 ### Troll your friends!
 - Use this mod to spam messages and sentences to troll your friends!
