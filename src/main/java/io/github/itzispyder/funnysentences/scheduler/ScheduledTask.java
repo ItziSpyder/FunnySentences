@@ -33,7 +33,7 @@ public class ScheduledTask implements Schedulable {
      * then kill thread
      * Can be cancelled
      * @param times times
-     * @param millisDelay tick delay (50 millis)
+     * @param millisDelay millis delay
      */
     @Override
     public void runRepeatingTask(int times, long millisDelay) {
@@ -51,7 +51,7 @@ public class ScheduledTask implements Schedulable {
     /**
      * Repeats a task forever
      * Can be cancelled
-     * @param millisDelay delay in ticks
+     * @param millisDelay millis delay
      */
     @Override
     public void runTaskForever(long millisDelay) {
@@ -69,7 +69,7 @@ public class ScheduledTask implements Schedulable {
     /**
      * Delays then runs a task then kills the thread
      * Can be cancelled
-     * @param millisDelay delay in ticks
+     * @param millisDelay millis delay
      */
     @Override
     public void runDelayedTask(long millisDelay) {

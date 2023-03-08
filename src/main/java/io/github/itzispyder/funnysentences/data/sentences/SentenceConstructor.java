@@ -1,40 +1,15 @@
 package io.github.itzispyder.funnysentences.data.sentences;
 
+import io.github.itzispyder.funnysentences.data.Config;
 import io.github.itzispyder.funnysentences.util.ArgBuilder;
 import io.github.itzispyder.funnysentences.util.Randomizer;
 import org.apache.commons.lang3.StringUtils;
-import java.util.Random;
 
 /**
  * Constructs sentences
  */
 public abstract class SentenceConstructor {
-    private static String[][][] SentenceStructures = new String[][][] {
-        new String[][] {
-            DefaultSentenceComponents.SUBJECTS,
-            DefaultSentenceComponents.ADJECTIVES,
-            DefaultSentenceComponents.NOUNS,
-            DefaultSentenceComponents.VERBS,
-            DefaultSentenceComponents.SUBJECTS,
-            DefaultSentenceComponents.ADJECTIVES,
-            DefaultSentenceComponents.NOUNS,
-            DefaultSentenceComponents.PREPOSITIONS,
-            DefaultSentenceComponents.SUBJECTS,
-            DefaultSentenceComponents.ADJECTIVES,
-            DefaultSentenceComponents.PLACES,
-            DefaultSentenceComponents.CONJUNCTIONS,
-            DefaultSentenceComponents.SUBJECTS,
-            DefaultSentenceComponents.ADJECTIVES,
-            DefaultSentenceComponents.NOUNS,
-            DefaultSentenceComponents.VERBS
-        },
-        new String[][] {
-            DefaultSentenceComponents.SUBJECTS,
-            DefaultSentenceComponents.VERBS,
-            DefaultSentenceComponents.NOUNS
-        }
-    };
-    
+
     /**
      * Generates a sentence with a sentence generator and a sentence feature
      * Sentence features will be IGNORED for NORMAL sentence generator
@@ -43,45 +18,75 @@ public abstract class SentenceConstructor {
      * @return generated sentence
      */
     public static String generate(SentenceGenerator type, SentenceFeature feature) {
-        List<String> options = null;
-        switch (type) {
-            // case without break will fall through
-            case LETTER_SPAM:
-                return spam(DefaultSentenceComponents.ALPHABET, feature.getWordCount(), feature.getMinWordLength(), feature.getMaxWordLength());
-            case EMOJI_SPAM:
-                return spam(DefaultSentenceComponents.EMOJIS, feature.getWordCount(), feature.getMinWordLength(), feature.getMaxWordLength());
-            case UNICODE_SPAM:
-                return spam(DefaultSentenceComponents.UNICODES, feature.getWordCount(), feature.getMinWordLength(), feature.getMaxWordLength());
-            case NORMAL:
-                return normalSentence();
-        }
-
-        throw new Exception("unexpected");
+        if (type == SentenceGenerator.NORMAL) return normal();
+        return custom(type,feature);
     }
 
-    private static String spam(List<String> options, int wordCount, int minWordLength, int maxWordLength) {
-        String[] words = new String[wordCount];
-
-        for (int i = 0; i < wordCount; i ++) {
-            int wordLength = Randomizer.rand(minWordLength, maxWordLength);
-            String[] word = new String[wordLength];
-
+    /**
+     * Generates custom sentence with features
+     * @param type generator
+     * @param feature feature
+     * @return generated sentence
+     */
+    private static String custom(SentenceGenerator type, SentenceFeature feature) {
+        StringBuilder sentence = new StringBuilder();
+        for (int i = 0; i < feature.getWordCount(); i ++) {
+            int wordLength = Randomizer.rand(feature.getMinWordLength(), feature.getMaxWordLength());
+            StringBuilder word = new StringBuilder();
             for (int j = 0; j < wordLength; j++) {
-                word[j] = new Randomizer<>(options).pickRand();
+                switch (type) {
+                    case LETTER_SPAM -> word.append(new Randomizer<>(DefaultSentenceComponents.ALPHABET).pickRand());
+                    case EMOJI_SPAM -> word.append(new Randomizer<>(DefaultSentenceComponents.EMOJIS).pickRand());
+                    case UNICODE_SPAM -> word.append(new Randomizer<>(DefaultSentenceComponents.UNICODES).pickRand());
+                }
             }
-
-            words[i] = StringUtils.join(word, '');
+            sentence.append(word).append(" ");
         }
-        
-        return String.join(" ", words);
+        return sentence.toString().trim().concat(".");
     }
 
-    private static String normalSentence() {
-        Random rand = new Random();
-        StringBuilder sb = new StringBuilder();
-        foreach(String[] struct : SentenceStructures[rand.nextInt(SentenceStructures.length)]) {
-            sb.append(struct[rand.nextInt(struct.length)]).append(" ");
-        }
-        return sb.toString().trim() + ".";
+    /**
+     * Generates a normal sentence
+     * @return generated sentence
+     */
+    private static String normal() {
+        String subject = new Randomizer<>(Config.subjectList).pickRand();
+        String adjective = new Randomizer<>(Config.adjectiveList).pickRand();
+        String noun = new Randomizer<>(Config.nounsList).pickRand();
+        String verb = new Randomizer<>(Config.verbList).pickRand();
+        String subject2 = new Randomizer<>(Config.subjectList).pickRand();
+        String adjective2 = new Randomizer<>(Config.adjectiveList).pickRand();
+        String noun2 = new Randomizer<>(Config.nounsList).pickRand();
+        String preposition = new Randomizer<>(Config.prepositionList).pickRand();
+        String subject3 = new Randomizer<>(Config.subjectList).pickRand();
+        String adjective3 = new Randomizer<>(Config.adjectiveList).pickRand();
+        String place = new Randomizer<>(Config.placeList).pickRand();
+        String conjunction = new Randomizer<>(Config.conjunctionList).pickRand();
+        String subject4 = new Randomizer<>(Config.subjectList).pickRand();
+        String adjective4 = new Randomizer<>(Config.adjectiveList).pickRand();
+        String noun3 = new Randomizer<>(Config.nounsList).pickRand();
+        String verb2 = new Randomizer<>(Config.verbList).pickRand();
+        return StringUtils.capitalize(new ArgBuilder()
+                .append(subject)
+                .append(adjective)
+                .append(noun)
+                .append(verb)
+                .append(subject2)
+                .append(adjective2)
+                .append(noun2)
+                .append(preposition)
+                .append(subject3)
+                .append(adjective3)
+                .append(place)
+                .append(conjunction)
+                .append(subject4)
+                .append(adjective4)
+                .append(noun3)
+                .append(verb2)
+                .append(subject)
+                .append(adjective)
+                .append(noun)
+                .build()
+                .concat("."));
     }
 }

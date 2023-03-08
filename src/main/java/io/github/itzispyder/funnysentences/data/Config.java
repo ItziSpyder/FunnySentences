@@ -4,6 +4,7 @@ import io.github.itzispyder.funnysentences.data.sentences.SentenceComponent;
 import io.github.itzispyder.funnysentences.registry.ConfigurationRegistry;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,13 +16,13 @@ public abstract class Config {
         ConfigurationRegistry.registerAll();
     }
 
-    public static List<String> subjectList = new ArrayList<>();
-    public static List<String> nounsList = new ArrayList<>();
-    public static List<String> verbList = new ArrayList<>();
-    public static List<String> prepositionList = new ArrayList<>();
-    public static List<String> conjunctionList = new ArrayList<>();
-    public static List<String> placeList = new ArrayList<>();
-    public static List<String> adjectiveList = new ArrayList<>();
+    public static List<String> subjectList = Collections.unmodifiableList(new ArrayList<>());
+    public static List<String> nounsList = Collections.unmodifiableList(new ArrayList<>());
+    public static List<String> verbList = Collections.unmodifiableList(new ArrayList<>());
+    public static List<String> prepositionList = Collections.unmodifiableList(new ArrayList<>());
+    public static List<String> conjunctionList = Collections.unmodifiableList(new ArrayList<>());
+    public static List<String> placeList = Collections.unmodifiableList(new ArrayList<>());
+    public static List<String> adjectiveList = Collections.unmodifiableList(new ArrayList<>());
 
     /**
      * Updates the config data for sentence components
@@ -29,14 +30,15 @@ public abstract class Config {
      * @param newList new component
      */
     public static void updateSentenceComponent(SentenceComponent component, List<String> newList) {
+        List<String> unmodifiableList = Collections.unmodifiableList(newList);
         switch (component) {
-            case NOUN -> nounsList = newList;
-            case VERB -> verbList = newList;
-            case SUBJECT -> subjectList = newList;
-            case PLACE -> placeList = newList;
-            case CONJUNCTION -> conjunctionList = newList;
-            case ADJECTIVE -> adjectiveList = newList;
-            case PREPOSITION -> prepositionList = newList;
+            case NOUN -> nounsList = unmodifiableList;
+            case VERB -> verbList = unmodifiableList;
+            case SUBJECT -> subjectList = unmodifiableList;
+            case PLACE -> placeList = unmodifiableList;
+            case CONJUNCTION -> conjunctionList = unmodifiableList;
+            case ADJECTIVE -> adjectiveList = unmodifiableList;
+            case PREPOSITION -> prepositionList = unmodifiableList;
         }
     }
 }

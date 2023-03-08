@@ -1002,8 +1002,7 @@ public abstract class DefaultSentenceComponents {
             case PREPOSITION: return PREPOSITIONS;
             case CONJUNCTION: return CONJUNCTIONS;
             case SUBJECT: return SUBJECTS;
-            default: new ArrayList<>();
+            default: return new ArrayList<>();
         }
-        return new ArrayList<>();
     }
 }

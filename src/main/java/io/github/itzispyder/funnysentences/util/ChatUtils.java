@@ -24,6 +24,7 @@ public abstract class ChatUtils {
      * @param message chat message
      */
     public static void sendMessage(String message) {
+        if (message == null) return;
         mc.player.sendMessage(Text.literal(message));
     }
 }
