@@ -15,7 +15,6 @@ public abstract class ChatUtils {
      */
     public static void sendChatMessage(String message) {
         if (message == null) return;
-        if (message.startsWith("/")) return;
         mc.player.networkHandler.sendChatMessage(message);
     }
 
@@ -26,5 +25,13 @@ public abstract class ChatUtils {
     public static void sendMessage(String message) {
         if (message == null) return;
         mc.player.sendMessage(Text.literal(message));
+    }
+
+    /**
+     * Sends a series of chat messages to the player
+     * @param messages messages to send
+     */
+    public static void sendMessage(String... messages) {
+        for (String message : messages) sendMessage(message);
     }
 }

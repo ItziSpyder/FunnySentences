@@ -35,9 +35,9 @@ public abstract class SentenceConstructor {
             StringBuilder word = new StringBuilder();
             for (int j = 0; j < wordLength; j++) {
                 switch (type) {
-                    case LETTER_SPAM -> word.append(new Randomizer<>(DefaultSentenceComponents.ALPHABET).pickRand());
-                    case EMOJI_SPAM -> word.append(new Randomizer<>(DefaultSentenceComponents.EMOJIS).pickRand());
-                    case UNICODE_SPAM -> word.append(new Randomizer<>(DefaultSentenceComponents.UNICODES).pickRand());
+                    case RAGE -> word.append(new Randomizer<>(DefaultSentenceComponents.ALPHABET).pickRand());
+                    case EMOJI -> word.append(new Randomizer<>(DefaultSentenceComponents.EMOJIS).pickRand());
+                    case UNICODE -> word.append(new Randomizer<>(DefaultSentenceComponents.UNICODES).pickRand());
                 }
             }
             sentence.append(word).append(" ");
