@@ -3,11 +3,13 @@ Generate random funny sentences to troll your friends with!
 --------------------------------------------------------
 
 ### Commands *(everything is clientside!)*
-- /fs:sent create -generates sentence and sends it
-- /fs:sent custom -generates sentence with custom word count
-- /fs:sent spam   -generates and spams sentences
-- /fs:spam        -spams messages
-- /fs:help        -command help
+- /fs | sends random sentence
+- /fs \<type\> | sends sentence
+- /fs \<type\> spam \<times\> | spams sentence
+- /fs \<type\> words \<count\> | sends sentence with custom word count
+- /fs \<type\> words \<count\> spam \<times\> | spams sentence with custom word count
+- /fs spam \<message\> | spams a message
+- /fs help | command help
 
 ### Sentences
 - Normal(Default) -generates random sentence
