@@ -8,7 +8,7 @@ Generate random funny sentences to troll your friends with!
 - /fs \<type\> spam \<times\> | spams sentence
 - /fs \<type\> words \<count\> | sends sentence with custom word count
 - /fs \<type\> words \<count\> spam \<times\> | spams sentence with custom word count
-- /fs spam \<message\> | spams a message
+- /fs spam \<times\> \<message\> | spams a message
 - /fs help | command help
 
 ### Sentence Types
